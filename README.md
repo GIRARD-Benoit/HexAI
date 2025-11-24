@@ -1,51 +1,31 @@
-Pour exécuter le code:
+# Moteur de jeu HEX avec IA Minimax
 
-Premièrement il est nécessaire d'utiliser Python3.11
-Une fois la bonne version de python installée, créer un environnement virtuel:
-```bash
-python3 -m venv venv
-```
-Et l'activer.
+Un moteur pour le jeu HEX basé sur un algorithme Minimax, permettant de jouer humain contre humain ou humain contre ordinateur.
 
-Ensuite il faut installer les requirements (a executer dans le dossier /Hex):
-```bash
-pip install -r requirements.txt
-```
+Prérequis : Python 3.11 (ou supérieur) et pip.
 
-Pour lancer une partie, on peut utiliser les commandes présentées dans l'énoncé:
+Installation :  
+1. Cloner le dépôt :  
+   git clone <URL_DU_DEPOT>
+   cd Hex  
+2. Créer un environnement virtuel :  
+   python3 -m venv venv  
+3. Activer l’environnement :  
+   - Linux / macOS : source venv/bin/activate  
+   - Windows : venv\Scripts\activate  
+4. Installer les dépendances :  
+   pip install -r requirements.txt
 
-Partie humain contre humain:
-```bash
-python main_hex.py -t human_vs_human
-```
+Exécution :  
+- Partie humain contre humain :  
+  python main_hex.py -t human_vs_human  
+- Partie humain contre IA :  
+  python main_hex.py -t human_vs_computer my_player.py  
+  (my_player.py : fichier contenant la logique de l’IA, dans le même dossier que main_hex.py ou avec chemin complet)
 
-Pour faire affronter 2 agents:
-```bash
-python main_hex.py -t local agent1.py agent2.py
-```
+Règles du jeu :  
+- Le premier joueur joue les pions rouges, le second joue les pions bleus.  
+- Le rouge doit relier le haut et le bas du plateau, le bleu doit relier la gauche et la droite.  
+- À chaque tour, un joueur pose un pion sur une case vide.  
+- Le premier joueur à compléter son chemin gagne.
 
-Un agent aléatoire et un greedy sont fournis:
-```bash
-python main_hex.py -t local .\random_player_hex.py .\greedy_player_hex.py
-```
-
-Pour affronter humain contre agent:
-```bash
-python main_hex.py -t human_vs_computer agent.py
-```
-
-Pour affronter un agent d'un autre groupe:
-Sur le PC hébergant le match:
-```bash
-python main_hex.py -t host_game -a <ip_adress> agent.py
-```
-Et l'équipe qu'on affronte devra lancer, avec l'IP de l'équipe qui héberge:
-```bash
-python main_hex.py -t connect -a <ip_adress> agent.py
-```
-
-## Règles
-Le premier joueur joue les pions rouges, le second les bleus. Le joueur rouge doit relier par un chemin continu le haut et le bas du plateau, tandis que le bleu doit relier la gauche et la droite. 
-
-
-A chaque tour, un joueur va poser une pièce de sa couleur sur une case vide du plateau.
