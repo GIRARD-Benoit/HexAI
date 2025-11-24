@@ -3,11 +3,11 @@ Pour exécuter le code:
 Premièrement il est nécessaire d'utiliser Python3.11
 Une fois la bonne version de python installée, créer un environnement virtuel:
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 Et l'activer.
 
-Ensuite il faut installer les requirements:
+Ensuite il faut installer les requirements (a executer dans le dossier /Hex):
 ```bash
 pip install -r requirements.txt
 ```
@@ -46,5 +46,6 @@ python main_hex.py -t connect -a <ip_adress> agent.py
 
 ## Règles
 Le premier joueur joue les pions rouges, le second les bleus. Le joueur rouge doit relier par un chemin continu le haut et le bas du plateau, tandis que le bleu doit relier la gauche et la droite. 
+
 
 A chaque tour, un joueur va poser une pièce de sa couleur sur une case vide du plateau.
